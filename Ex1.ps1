@@ -14,3 +14,4 @@ foreach ($elem in $array){
 $x = [Math]::Pow($array[$elem-1],2)
 Write-Output $x
 }
+23
