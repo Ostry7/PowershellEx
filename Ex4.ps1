@@ -26,32 +26,10 @@
 echo "Enter a year: "
 $input  = Read-Host
 
-
-$i = 0
-
-    if ($input % 4 -eq 0){
-        $i=1
+    if (($input % 4 -eq 0) -AND (($input % 100 -ne 0) -OR ($input % 400 -eq 0)) ){
+        echo "leap year"
     }
-    if ($input % 4 -ne 0){
-        $i=5
+    else{
+        echo "NOT leap year"
     }
-    if (($input % 100 -eq 0) -AND ($i=1)){
-        $i=2
-    }
-    if(($input % 100 -ne 0) -AND ($i=1)){
-        $i=3
-    }
-    if(($input % 400 -eq 0) -AND ($i=2)){
-        $i=4
-    }
-    if(($input % 400 -ne 0) -AND ($i=2)){
-        $i=6
-    }
-
-switch ($i){
-    "5" {echo "NOT leap year"; break}
-    "3" {echo "leap year"; break}
-    "4" {echo "leap year"; break}
-    "6" {echo "NOT leap year"; break}
-}
     
