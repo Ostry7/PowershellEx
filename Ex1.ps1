@@ -1,16 +1,22 @@
 ﻿#Ex1 - accumulate#
 
-#Create array
-$array = @()
-do {
- $input = (Read-Host "Please enter elem of array")
- if ($input -ne '') {$array += $input}
-}
-until ($input -eq '')
+function accumulateEx1{
+    #Create array
+    $array = @()
 
-#operation square
-foreach ($elem in $array){
+    #Add elems to array
+        do {
+         $input = (Read-Host "Please enter elem of array")
+            if ($input -ne '') {$array += $input}
+        }
+        until ($input -eq '')
 
-$x = [Math]::Pow($array[$elem-1],2)
-Write-Output $x
+    #operation square
+          for($i=1; $i -le $array.count;$i++){        
+            $var = [Math]::Pow($array[$i-1],2)
+            Write-Output $var
+          }
+
+    #Clear array
+    $array.Clear()
 }
