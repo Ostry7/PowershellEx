@@ -28,6 +28,7 @@ $input  = Read-Host
 
 
 $i = 0
+
     if ($input % 4 -eq 0){
         $i=1
     }
