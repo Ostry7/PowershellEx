@@ -1,10 +1,10 @@
 /*Last modify: 2023-06-22*/
 
 --CREATE CatchUP schema:
-    CREATE SCHEMA [IF NOT EXISTS] catchup;
+    CREATE SCHEMA IF NOT EXISTS catchup;
 
 --CREATE USERS table:
-    CREATE TABLE [IF NOT EXISTS] catchup.users (
+    CREATE TABLE IF NOT EXISTS catchup.users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(50) NOT NULL,
     password VARCHAR(50) NOT NULL,
@@ -17,14 +17,14 @@
     )
 
 --CREATE CONTACTS table:
-    CREATE TABLE catchup.contacts (
+    CREATE TABLE IF NOT EXISTS catchup.contacts (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES catchup.users(id),
     contact_id INTEGER REFERENCES catchup.users(id)
 );
 
 --CREATE CHATROOM table:
-    CREATE TABLE catchup.chatroom (
+    CREATE TABLE IF NOT EXISTS catchup.chatroom (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     creator_id INTEGER REFERENCES catchup.users(id),
@@ -32,7 +32,7 @@
 );
 
 --CREATE CHATROOMROLES table:
-    CREATE TABLE catchup.chatroomroles (
+    CREATE TABLE IF NOT EXISTS catchup.chatroomroles (
     id SERIAL PRIMARY KEY,
     chatroom_id INTEGER REFERENCES catchup.chatroom(id),
     user_id INTEGER REFERENCES catchup.users(id),
@@ -40,7 +40,7 @@
 );
 
 --CREATE MESSAGES table:
-    CREATE TABLE messages (
+    CREATE TABLE IF NOT EXISTS messages (
     id SERIAL PRIMARY KEY,
     chatroom_id INTEGER REFERENCES catchup.chatroom(id),
     user_id INTEGER REFERENCES catchup.users(id),
