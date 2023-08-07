@@ -54,7 +54,7 @@
 #    num_of_words = data.split()
 #    print(f"Number of characters: {num_of_characters}; number of lines: {num_lines}; number of words: {len(num_of_words)}")
 #input_calc()
-
+#2
 #4
 def is_prime_numbers(num): 
     if num < 2:
